@@ -25,7 +25,7 @@ Examples:
 function onlyEvenValues(arr){
     let evenArr = [];
     arr.forEach(function(value) {
-        if(value % 2 ===0) {
+        if(value % 2 === 0) {
             evenArr.push(value);
         }
     });
@@ -40,7 +40,13 @@ Examples:
     showFirstAndLast(['hi', 'goodbye', 'smile']) // ['hi', 'ge', 'se']
 
 */
-function showFirstAndLast(arr){}
+function showFirstAndLast(arr){
+    let firstAndLastArr = [];
+    arr.forEach(function(value) {
+        firstAndLastArr.push(value[0] + value[value.length - 1]);
+    });
+    return firstAndLastArr;
+}
 
 /*
 Write a function called addKeyAndValue which accepts an array of objects, a key, and a value and returns the array passed to the function with the new key and value added for each object 
@@ -51,7 +57,13 @@ Examples:
     // [{name: 'Elie', title:'instructor'}, {name: 'Tim', title:'instructor'}, {name: 'Matt', title:'instructor'}, {name: 'Colt', title:'instructor'}]
 
 */
-function addKeyAndValue(arr,key,value){}
+function addKeyAndValue(arr,key,value){
+    let appendedArr = [];
+    arr.forEach(function(val) {
+        val[key] = value;
+    })
+    return appendedArr;
+}
 
 /*
 Write a function called vowelCount which accepts a string and returns an object with the keys as the vowel and the values as the number of times the vowel appears in the string. This function should be case insensitive so a lowercase letter and uppercase letter should count
@@ -63,7 +75,23 @@ Examples:
     vowelCount('hmmm') // {};
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
-function vowelCount(str){}
+function vowelCount(str){
+    const vowels = 'aeiou';
+    const splitString = str.split('');
+    let countObj = {};
+
+    splitString.forEach(function(value) {
+        const letter = value.toLowerCase();
+        if (vowels.indexOf(letter) !== -1) {
+            if (obj[letter]) {
+                obj[letter]++;
+            }
+            else {
+                obj[letter] = 1;
+            }
+        }
+    })
+}
 
 /*
 Write a function called doubleValuesWithMap which accepts an array and returns a new array with all the values in the array passed to the function doubled
